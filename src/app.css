@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .custom-bg{
+        --background-svg: none;
+        background-image: var(--background-svg);
+    }
+}
