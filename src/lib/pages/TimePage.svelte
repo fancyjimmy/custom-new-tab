@@ -1,6 +1,8 @@
 <script lang="ts">
     import Clock from "../components/Clock.svelte";
     import {onMount} from "svelte";
+    import {createTimer} from "../../store";
+    import StopWatch from "../components/StopWatch.svelte";
 
     let time = new Date();
 
@@ -14,6 +16,8 @@
         };
     });
 
+    const timer = createTimer("test");
+
     $: hours = time.getHours();
     $: minutes = time.getMinutes();
     $: seconds = time.getSeconds();
@@ -26,15 +30,18 @@
 </script>
 
 <div class="h-full w-full flex items-center justify-center">
-    <div class="flex items-center justify-center flex-col">
+    <StopWatch name="test"></StopWatch>
+    <StopWatch name="hallo"></StopWatch>
 
+        <div class="flex items-center justify-center flex-col">
     <div class="w-96 h-96">
         <Clock></Clock>
     </div>
 
-    <div class="bg-primary-300 dark:bg-primary-700 p-6 rounded-full">
+    <div class="bg-primary-300 dark:bg-primary-700 p-6 rounded-full shadow-xl">
         <p class="text-8xl font-bold font-mono dark:text-white text-slate-900">{pad(hours,2 )}:{pad(minutes, 2)}:{pad(seconds, 2)}</p>
     </div>
+
     </div>
 
 </div>

@@ -1,4 +1,4 @@
-import {writable} from "svelte/store";
+import {derived, get, readable, writable} from "svelte/store";
 
 type Todo = {
     id: number;
@@ -154,3 +154,36 @@ export function createTodos(name: string) {
 
 export const darkmode = serializable("darkmode", true);
 export const defaultPage = serializable("defaultPage", 0);
+
+
+export function createTimer(name: string) {
+    const timer = serializable("timer:" + name, Date.now());
+
+
+    const timerState = serializable("timerState:" + name, false);
+
+
+    const start = () => {
+        timerState.set(true);
+        timer.set(Date.now());
+    }
+
+    const stop = () => {
+        timerState.set(false);
+        timer.set(null);
+    }
+
+    return {
+        timer: {
+            ...timer,
+            start,
+            stop,
+            isStarted() {
+                return get(timer) !== null;
+            }
+        },
+        timerState :{
+            ...timerState
+        }
+    };
+}
