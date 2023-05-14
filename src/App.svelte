@@ -7,6 +7,7 @@
     import SettingsPage from "./lib/pages/SettingsPage.svelte";
     import TimePage from "./lib/pages/TimePage.svelte";
     import NotePage from './lib/pages/NotePage.svelte';
+    import BoredPage from './lib/pages/BoredPage.svelte';
 
 
     let pages: { name: string, page: typeof SvelteComponent } [] = [];
@@ -15,6 +16,7 @@
     pages.push({name: "Todo", page: TodoPage});
     pages.push({name: "Time", page: TimePage});
     pages.push({name: "Note", page: NotePage});
+    pages.push({name: "Bored", page: BoredPage});
     pages.push({name: "🔧", page: SettingsPage});
 
     let pageId = $defaultPage;
