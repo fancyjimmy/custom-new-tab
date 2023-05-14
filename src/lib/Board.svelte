@@ -49,7 +49,7 @@
                                     text = "";
 
                     }}
-              class="bg-slate-200 border-2 dark:bg-slate-900 flex p-2 border-slate-600/40 dark:border-slate-600/40 rounded-lg dark:text-white">
+              class="better-input">
             <input type="text" bind:value={text}
                    class="flex-1 placeholder-slate-600 focus:outline-0 bg-transparent"
                    placeholder="Add a todo..."

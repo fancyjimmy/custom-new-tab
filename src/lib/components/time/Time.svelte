@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import BaseClock from "./BaseClock.svelte";
+    import Clock from "./Clock.svelte";
 
     let time = new Date();
 
@@ -23,7 +23,7 @@
 </script>
 
 
-<BaseClock bind:hours bind:minutes bind:seconds ></BaseClock>
+<Clock bind:hours bind:minutes bind:seconds ></Clock>
 
 <style>
     svg {
