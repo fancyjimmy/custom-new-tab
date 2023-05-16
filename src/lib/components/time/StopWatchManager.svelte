@@ -19,7 +19,7 @@
 
   </div>
 
-  <form on:submit|preventDefault={() => {defaultTimerManager.addTimer(timerValue); note = "";}}
+  <form on:submit|preventDefault={() => {defaultTimerManager.addTimer(timerValue); timerValue = "";}}
         class='better-input'
   >
     <input type='text' bind:value={timerValue} class='flex-1 placeholder-slate-600 focus:outline-0 bg-transparent'
