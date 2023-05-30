@@ -1,4 +1,11 @@
 import {derived, get, readable, writable} from 'svelte/store';
+import StartingPage from "./lib/pages/StartingPage.svelte";
+import TodoPage from "./lib/pages/TodoPage.svelte";
+import BoredPage from "./lib/pages/BoredPage.svelte";
+import NotePage from "./lib/pages/NotePage.svelte";
+import TimePage from "./lib/pages/TimePage.svelte";
+import SettingsPage from "./lib/pages/SettingsPage.svelte";
+import {SvelteComponent} from "svelte";
 
 type Todo = {
   id: number;
@@ -152,9 +159,17 @@ export function createTodos(name: string) {
 }
 
 
-export const darkmode = serializable('darkmode', true);
+export const darkMode = serializable('darkmode', true);
 export const defaultPage = serializable('defaultPage', 0);
 
+export const pages = readable<{ name: string, page: typeof SvelteComponent }[]>( [
+  {name: "Blank", page: StartingPage},
+  {name: "Todo", page: TodoPage},
+  {name: "Time", page: TimePage},
+  {name: "Note", page: NotePage},
+  {name: "Bored", page: BoredPage},
+  {name: "🔧", page: SettingsPage}
+]);
 
 export function createTimer(name: string) {
   const timer = serializable('timer:' + name, Date.now());

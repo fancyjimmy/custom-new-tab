@@ -21,18 +21,19 @@
     <h3 class="text-slate-900 text-2xl dark:text-slate-200 font-bold {!active ? 'rotate-text py-9' : ''}">{name}</h3>
     {#if active}
 
-        <button class="absolute top-2 right-2 text-slate-600 hover:text-slate-400 text-xl duration-500" on:click={() => {bordManager.removeBoard(name);
-    board.clearTodos();
+        <button class="absolute top-2 right-2 text-slate-600 hover:text-slate-400 text-xl duration-500" on:click={() => {
+            bordManager.removeBoard(name);
+            board.clearTodos();
     }}>
             <Icon icon="mdi:trash"/>
         </button>
         <div class="flex flex-col">
             {#each $board as todo}
                 <div class="flex items-center">
-                    <label class="p-2 flex-1 inline-flex justify-between font-semibold dark:text-white text-slate-800 truncate">
-                        {todo.text}
-                        <input type="checkbox" class="dark:bg-slate-700" bind:checked={todo.done}
+                    <label class="p-2 flex-1 inline-flex font-semibold dark:text-white text-slate-800 truncate">
+                        <input type="checkbox" class="dark:bg-slate-700 mr-3" bind:checked={todo.done}
                                on:change={() => board.updateTodo(todo)}>
+                        {todo.text}
                     </label>
                     <button
                             class="text-slate-600 hover:text-slate-400 text-xl duration-500 "
@@ -65,7 +66,7 @@
 
 
 <style>
-    .rotate-text{
+    .rotate-text {
         writing-mode: vertical-rl;
         text-orientation: mixed;
     }
