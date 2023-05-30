@@ -33,14 +33,12 @@
 <div class="h-full w-full flex items-center justify-center">
 
     <div class="flex items-center justify-center flex-col flex-1">
-        <div class="w-96 h-96">
+        <div class="w-96 h-96 mb-5">
             <Clock></Clock>
         </div>
 
-        <div class="bg-primary-300 dark:bg-primary-700 p-6 rounded-full shadow-xl">
-            <p class="text-8xl font-bold font-mono dark:text-white text-slate-900">{pad(hours, 2)}:{pad(minutes, 2)}:{pad(seconds, 2)}</p>
-        </div>
+        <p class="text-8xl font-bold font-mono dark:text-white text-slate-900">{pad(hours, 2)}:{pad(minutes, 2)}:{pad(seconds, 2)}</p>
 
     </div>
-    <StopWatchManager class='h-full p-3 w-96'/>
+    <StopWatchManager class='h-full p-3 w-96 bg-slate-300/30 dark:bg-slate-900/60'/>
 </div>

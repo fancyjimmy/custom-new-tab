@@ -45,7 +45,7 @@
 </script>
 
 
-<div class='bg-slate-300/70 border-2 dark:bg-slate-900 flex flex-col p-1 border-slate-600/40 dark:border-slate-600/40 rounded-lg dark:text-white'>
+<div class='bg-slate-200 border-2 dark:bg-slate-800 flex flex-col p-2 border-slate-600/40 dark:border-slate-600/40 rounded-lg dark:text-white'>
   <div class='flex justify-between'>
     <p class='font-bold font-mono text-lg dark:text-slate-200 text-slate-700'>{name}</p>
 
@@ -59,12 +59,12 @@
     </div>
   </div>
 
-  <div class='text-2xl dark:text-slate-300 text-slate-800 flex justify-end gap-2 mt-[-0.3rem]'>
+  <div class='text-2xl pt-2 dark:text-slate-300 text-slate-800 flex justify-end gap-2 mt-[-0.3rem]'>
     <button on:click={() => {timer.stop()}}>
       <Icon icon='material-symbols:stop' />
     </button>
     <button on:click={() => {timer.start()}}>
-      <Icon icon='mdi:car-engine-start' />
+      <Icon icon={$timerState ? 'uil:redo' : 'material-symbols:play-arrow'} />
     </button>
     <button on:click={() => {remove(); dispatch("remove");}}>
       <Icon icon='mdi:trash-can' />
