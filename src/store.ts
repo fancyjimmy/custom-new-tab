@@ -7,6 +7,8 @@ import TimePage from "./lib/pages/TimePage.svelte";
 import SettingsPage from "./lib/pages/SettingsPage.svelte";
 import {SvelteComponent} from "svelte";
 import PenPage from './lib/pages/PenPage.svelte';
+import CoinClick from './lib/pages/game/CoinClick.svelte';
+import NyanCat from './lib/pages/game/NyanCat.svelte';
 
 type Todo = {
   id: number;
@@ -257,3 +259,8 @@ export function createNoteManager(name: string) {
 
 export const noteManager = createNoteManager('default');
 export const defaultTimerManager = createTimerManager('defaultTimerManager');
+
+export const gamePages = readable<{ name: string, page: typeof SvelteComponent }[]>([
+  {name: "Clicker", page: CoinClick},
+  {name: "NyanCat", page: NyanCat},
+  ]);

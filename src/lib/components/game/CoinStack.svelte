@@ -42,15 +42,11 @@
     return {h, s, l};
   }
 
-  function hslToHex(hsl: {h: number, s: number, l: number}){
-
-  }
 
 
 
   function changeLightness(hsl: {h: number, s: number, l:number}, value: number){
     let color = {...hsl};
-    console.log(color);
     color.l = value;
     return color;
   }
