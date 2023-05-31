@@ -14,7 +14,7 @@
     <div class='absolute inset-0 margin-0 overflow-y-auto scrollbar-hidden'>
       <div class='flex flex-col justify-start items-start'>
         {#each $noteManager as noteName, i}
-          <button on:click={() => {selectedNote = null; setTimeout(() => {selectedNote = noteName;})}} class='text-left text-1xl border-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-500 mx-[2%] w-[96%] p-1 truncate px-2 font-semibold dark:text-slate-300'>
+          <button on:click={() => {selectedNote = null; setTimeout(() => {selectedNote = noteName;})}} class='text-left text-1xl border-slate-400 hover:bg-slate-200 dark:hover:bg-slate-500 mx-[2%] w-[96%] p-1 truncate px-2 font-semibold dark:text-slate-300'>
             {noteName}
           </button>
         {/each}
@@ -27,7 +27,7 @@
     }}
             class='better-input m-1 rounded-none'
       >
-        <input type='text' bind:value={note} class='text-1xl flex-1 placeholder-slate-600 dark:placeholder-slate-400 focus:outline-0 bg-transparent'
+        <input type='text' bind:value={note} class='flex-1 placeholder-slate-600 dark:placeholder-slate-400 focus:outline-0 bg-transparent'
                placeholder='Create Note...'
         spellcheck='false'>
         <button class='text-xl'>

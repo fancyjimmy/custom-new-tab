@@ -6,6 +6,7 @@ import NotePage from "./lib/pages/NotePage.svelte";
 import TimePage from "./lib/pages/TimePage.svelte";
 import SettingsPage from "./lib/pages/SettingsPage.svelte";
 import {SvelteComponent} from "svelte";
+import PenPage from './lib/pages/PenPage.svelte';
 
 type Todo = {
   id: number;
@@ -14,30 +15,6 @@ type Todo = {
   date: Date;
 }
 
-
-export function serializable<T>(name: string, defaultValue: T, storage: Storage = localStorage) {
-  const stored = storage.getItem(name);
-  if (stored) {
-    defaultValue = JSON.parse(stored);
-  }
-
-  const {subscribe, set, update} = writable<T>(defaultValue);
-
-  subscribe(value => {
-    if (value !== null) {
-      storage.setItem(name, JSON.stringify(value));
-    } else {
-      storage.removeItem(name);
-    }
-  });
-
-  return {
-    subscribe,
-    set,
-    update
-  };
-
-}
 
 export function createBordManager() {
   const stored = localStorage.boardManager;
@@ -80,6 +57,30 @@ export function createBordManager() {
     },
     removeBoard
   };
+}
+
+export function serializable<T>(name: string, defaultValue: T, storage: Storage = localStorage) {
+  const stored = storage.getItem(name);
+  if (stored) {
+    defaultValue = JSON.parse(stored);
+  }
+
+  const {subscribe, set, update} = writable<T>(defaultValue);
+
+  subscribe(value => {
+    if (value !== null) {
+      storage.setItem(name, JSON.stringify(value));
+    } else {
+      storage.removeItem(name);
+    }
+  });
+
+  return {
+    subscribe,
+    set,
+    update
+  };
+
 }
 
 export const bordManager = createBordManager();
